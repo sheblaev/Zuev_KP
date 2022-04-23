@@ -5,10 +5,11 @@
 #include <cmath>
 #include "func.h"
 using namespace std;
+void result(int **mas, int *w, int n, int k, int *x);
 
-int backpack(int n, int k, int *w, int *v)
+int *backpack(int n, int k, int *w, int *v, int *x)
 {
-	int i, j, prev = 0, f = 0, max = 0;
+	int i, j, prev = 0, f = 0;
 	int **mas;
 	mas = new int *[n+1];
 	for (i = 0; i < n+1; i++)
@@ -52,11 +53,33 @@ int backpack(int n, int k, int *w, int *v)
 			}
 		}
 	}
-	max = mas[n][k];
+	x[n] = mas[n][k];
+	result(mas, w, n, k, x);
 	for (i = 0; i < n+1; i++)
 	{
 		delete[] mas[i];
 	}
 	delete[] mas;
-	return max;
+	return x;
+}
+
+void result(int **mas, int *w, int n, int k, int *x)
+{
+	int l = 0;
+	if (mas[n][k] == 0)
+	{
+		l = 1;
+	}
+	if (l == 0)
+	{
+		if (mas[n-1][k] == mas[n][k])
+		{
+			result(mas, w, n-1, k, x);
+		}
+		else
+		{
+			result(mas, w, n-1, k-w[n-1], x);
+			x[n-1] = 1;
+		}
+	}
 }

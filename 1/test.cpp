@@ -8,7 +8,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	int i, j = 0, z = 0, l = 0, n = 0, k = 0, x = 0;
+	int i, j = 0, z = 0, l = 0, n = 0, k = 0;
 	char *filename = 0;
 	if (argc != 2)
 	{
@@ -28,11 +28,14 @@ int main(int argc, char *argv[])
 	}
 	int *w = new int[n];
 	int *v = new int[n];
+	int *x = new int[n+1];
 	for (i = 0; i < n; i++)
 	{
 		w[i] = 0;
 		v[i] = 0;
+		x[i] = 0;
 	}
+	x[n] = 0;
 	while (fscanf(f, "%d", &z) == 1)
 	{
 		if (l == 0)
@@ -51,9 +54,14 @@ int main(int argc, char *argv[])
 		}
 	}
 	fclose(f);
-	x = backpack(n, k, w, v);
-	printf("%d\n", x);
+	x = backpack(n, k, w, v, x);
+	for (i = 0; i < n+1; i++)
+        {
+                printf("%d ", x[i]);
+        }
+	printf("\n");
 	delete[] w;
 	delete[] v;
+	delete[] x;
 	return 0;
 }
