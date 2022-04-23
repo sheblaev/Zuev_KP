@@ -54,15 +54,6 @@ int backpack(int n, int k, int *w, int *v)
 	}
 	max = mas[n][k];
 	for (i = 0; i < n+1; i++)
-        {
-                for (j = 0; j < k+1; j++)
-                {
-                        printf("%d ", mas[i][j]);
-                }
-		printf("\n");
-        }
-	printf("\n");
-	for (i = 0; i < n+1; i++)
 	{
 		delete[] mas[i];
 	}
