@@ -31,7 +31,6 @@ double TSP::recursion (vector<vector<double> >& mas, double sum)
         vector<double> dj = d_j(mas, s);
         v_point arg_max = argmax(di, dj, s);
         vector<vector<double>> resize_matrix = matrix_modify(mas, arg_max.s_point);
-        mas.clear();
         double new_sum = matrix_reduction(resize_matrix);
         auto par = NGFC(sum, new_sum, arg_max);
         if (par.first) 
@@ -49,9 +48,6 @@ double TSP::recursion (vector<vector<double> >& mas, double sum)
             ribe.s_point.absolute.second = arg_max.s_point.absolute.first;
             ribes.push_back(ribe);
         }
-        s.clear();
-        di.clear();
-        dj.clear();
         return recursion(resize_matrix, sum + new_sum);
     } 
     else 

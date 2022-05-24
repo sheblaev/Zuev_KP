@@ -42,7 +42,8 @@ void read(vector<vector<double> >& mas, const int& n, const vector<Point> points
 
 int main (int argc, char *argv[]) 
 {
-	double n = 0, z = 0;
+	int n = 0, z1 = 0;
+	double z = 0;
 	char *filename = 0;
 	if (argc != 2)
 	{
@@ -52,9 +53,9 @@ int main (int argc, char *argv[])
 	filename = argv[1];
         FILE *f;
         f = fopen(filename, "r");
-        if (fscanf(f, "%lf", &z) == 1)
+        if (fscanf(f, "%d", &z1) == 1)
         {
-                n = z;
+                n = z1;
         }
 	vector<Point> points(n);
 	for (int i = 0; i < n; i++)
