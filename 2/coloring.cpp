@@ -6,7 +6,7 @@
 #include "func.h"
 using namespace std;
 
-vector<vector<int>> read_graph(char *filename, vector<pair<int, int>>& list_edges, vector<int>& edges_counter) 
+vector<vector<int>> read_graph(char *filename, vector<pair<int, int>>& list, vector<int>& edgesc) 
 {
 	int z = 0, start = 0, end = 0;
 	FILE *f;
@@ -37,7 +37,7 @@ vector<vector<int>> read_graph(char *filename, vector<pair<int, int>>& list_edge
 			end = z;
 		}
 		auto p1 = make_pair(start, end);
-		list_edges.push_back(p1);
+		list.push_back(p1);
 		graph[start][end] = 1;
 		graph[end][start] = 1;
 		pairs[start].first = pairs[start].first+1;
@@ -48,16 +48,16 @@ vector<vector<int>> read_graph(char *filename, vector<pair<int, int>>& list_edge
 	sort(pairs.begin(), pairs.end());
 	for(int i = pairs.size()-1;i >= 0; i--)
 	{
-		edges_counter.push_back(pairs[i].second);
+		edgesc.push_back(pairs[i].second);
 	}
 	fclose(f);
 	return graph;
 }
 
-vector<int> solve(vector<vector<int>>& graph, const vector<int>& edges_counter) 
+vector<int> solve(vector<vector<int>>& graph, const vector<int>& edgesc) 
 {
-	vector<int> vColors(graph.size(), -1);
-	for(auto it : edges_counter) 
+	vector<int> vcolors(graph.size(), -1);
+	for(auto it : edgesc) 
 	{
 		int i = it;
 		vector<bool> colored(graph.size(), false);
@@ -65,9 +65,9 @@ vector<int> solve(vector<vector<int>>& graph, const vector<int>& edges_counter)
 		{
 			if (graph[i][j] == 1) 
 			{
-				if(vColors[j] > -1)
+				if(vcolors[j] > -1)
 				{
-					colored[vColors[j]] = true;
+					colored[vcolors[j]] = true;
 				}
 			}
 		}
@@ -75,10 +75,10 @@ vector<int> solve(vector<vector<int>>& graph, const vector<int>& edges_counter)
 		{
 			if (!colored[k]) 
 			{
-				vColors[i] = k;
+				vcolors[i] = k;
 				break;
 			}
 		}
 	}
-	return vColors;
+	return vcolors;
 }

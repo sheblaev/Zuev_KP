@@ -15,16 +15,16 @@ int main (int argc, char *argv[])
 		return 1;
 	}
 	filename = argv[1];
-	vector<int> edges_counter;
+	vector<int> edgesc;
 	vector<pair<int, int>> edges;
-	vector<vector<int>> graph = read_graph(filename, edges, edges_counter);
-	vector<int> colored2 = solve(graph, edges_counter);
+	vector<vector<int>> graph = read_graph(filename, edges, edgesc);
+	vector<int> colored = solve(graph, edgesc);
 	int max = -1;
-	for (int i = 0; i < colored2.size(); i++) 
+	for (int i = 0; i < colored.size(); i++) 
 	{
-		if (colored2[i] > max) 
+		if (colored[i] > max) 
 		{
-			max = colored2[i];
+			max = colored[i];
 		}
 	}
 	printf("%d\n", max+1);
