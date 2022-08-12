@@ -1,0 +1,32 @@
+sefefsefwefe
+#define hello privet poka
+xxxxx hello yyyyyyy
+#undef hello
+wefwefwefef
+#define hellooooooooooooooooooooo privet
+ffffff hellooooooooooooooooooooo fffffff hello hello ooodhdrhdoooortyui
+#undef hellooooooooooooooooooooo
+uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
+#define privet Hello
+#define privet Hello!
+#define prive4t Hello!!!!!
+q privet prive4t c
+q privet prive4t c
+q privetprive4t c
+#undef privet
+gfgfyg prive4t privet sxgXU
+#undef prive4t
+q PRIVET c
+#define hello privet
+qwfwefw hello cwfwewef
+#undef hello
+wewerwer
+wfwefffw
+wfwefwfr
+#define privet Hello
+#define privet Hello!
+#define prive4t Hello!!!!!
+#undef prive4t
+gfgfyg prive4t privet sxgXU
+#undef privet
+
