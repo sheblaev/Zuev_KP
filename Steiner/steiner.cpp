@@ -8,8 +8,13 @@
 #include "func.h"
 using namespace std;
 
-double *steiner(double *x)
+vector<point> Steiner::steiner()
 {
+	vector<point> x;
+	point p;
+	p.a.first = 10;
+	p.a.second = 15;
+	append(p);
 	return x;
 }
 
